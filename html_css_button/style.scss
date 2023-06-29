@@ -1,0 +1,85 @@
+// style.scssはsaasと呼ばれる書き方で、
+// VScodeで拡張機能を入れれば保存する際に
+// liveSassCompileのおかげで自動CSSファイル生成を行ってくれる
+
+// 変数宣言
+$cWhite: white;
+$cBlack: black;
+
+// 親タグ idは#
+#container {
+    // ネストすることで見やすさとCSSの記述が変わる！
+    // classは. 親とつなげるのでネストで& .btn
+    & .btn {
+        position: relative;
+        // inlineとblockの両立
+        display: inline-block;
+        // Button色
+        background-color: $cWhite;
+        // Button枠線
+        border: 1px solid $cBlack;
+        // 文字プロパティ
+        font-weight: 600;
+        // 余白内
+        padding: 10px 40px;
+        // 余白外
+        margin: 10px 20px;
+        // ボタンの上にカーソル置くと変化
+        cursor: pointer;
+        // カーソル上に来た時に以下hoverの動きを遅延
+        transition: all 0.3s;
+        // ボタンの文字色
+        color: black;
+        // わからん
+        text-decoration: none !important;
+
+        // ↓ネストで各ボタンの詳細やhover
+
+        // 色変化
+        &.float:hover {
+            background-color: $cBlack;
+            color: $cWhite;
+            // box-shadow 引数4は影の位置 色rgb(3色1透)
+            box-shadow: 5px 5px 10px 0 rgb(0, 0, 0, 0.5);
+        }
+
+        // 色変化 初期黒
+        &.filled {
+            background-color: $cBlack;
+            color: $cWhite;
+            box-shadow: 5px 5px 10px 0 rgb(0, 0, 0, 0.5);
+            // ネストでhover詳細
+            &.filled:hover {
+                background-color: $cWhite;
+                color: $cBlack;
+                box-shadow: none;
+            }
+        }
+
+        // おっきくなっちゃったボタン
+        &.letter-spacing:hover {
+            background-color: $cBlack;
+            color: $cWhite;
+            letter-spacing: 3px;
+        }
+
+        // 影ができて動きがオシャボタン
+        &.shadow:hover {
+            box-shadow: 5px 5px 0px 0px rgb(0, 0, 0);
+            transform: translate(-2.5, -2.5);
+        }
+
+        // 最初から影あってなくなる動きがオシャボタン
+        &.solid {
+            box-shadow: 5px 5px 0px 0px rgb(0, 0, 0);
+            // 角削り
+            border-radius: 7px;
+            &.solid:hover {
+                box-shadow: none;
+                transform: translate(2px, 2px);
+            }
+        }
+
+
+    }
+}
