@@ -1,0 +1,49 @@
+$cWhite: white;
+$cBlack: black;
+
+
+// 位置をずらしたり、大きくしたり小さくしたり
+#trans {
+    & .t1{
+        position: relative;
+        display: inline-block;
+
+        width: 100px;
+        height: 100px;
+        // margin=widthを設定している必要がある
+        margin: 30px 50px;
+        border: 2px solid $cBlack;
+        font-size: large;
+        background-color: $cWhite;    
+    
+        &.late{
+            // translate(x軸, y軸)にずらす
+            // px, %で動かすことが可能
+            transform: translate(20px 20px);
+            // translateX, translateYもある(軸単体)
+        }
+        
+        &.rotate{
+            // rotate(**deg) deg(°)回転させる
+            transform: rotate(20deg);
+        }
+
+        &.origin{
+            // 回転するときの支点を確定
+            transform: rotate(20deg);
+            transform-origin: top left;
+            // top/bottom/center right/left/center
+            // 左上を起点として数値設定も可能            
+        }
+
+        &.skew {
+            // 平行四辺形 skew(x軸**deg, y軸**deg)
+            transform: skew(20deg, 20deg);
+        }
+
+        &.scale {
+            // 大きさ変更 scale(x軸倍, y軸倍)
+            transform: scale(1.5, 1);
+        }
+    }
+}

@@ -1,0 +1,26 @@
+#trans .t1 {
+  position: relative;
+  display: inline-block;
+  width: 100px;
+  height: 100px;
+  margin: 30px 50px;
+  border: 2px solid black;
+  font-size: large;
+  background-color: white;
+}
+#trans .t1.late {
+  transform: translate(20px 20px);
+}
+#trans .t1.rotate {
+  transform: rotate(20deg);
+}
+#trans .t1.origin {
+  transform: rotate(20deg);
+  transform-origin: top left;
+}
+#trans .t1.skew {
+  transform: skew(20deg, 20deg);
+}
+#trans .t1.scale {
+  transform: scale(1.5, 1);
+}/*# sourceMappingURL=style.css.map */
